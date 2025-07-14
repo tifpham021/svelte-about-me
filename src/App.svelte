@@ -77,7 +77,7 @@
           intuitive, engaging user experiences.`;
   
   $: if (!showName) {
-    setTimeout(() => (showName = true), 1500); // adjust delay if needed
+    setTimeout(() => (showName = true), 1000); // adjust delay if needed
   }
   
 
