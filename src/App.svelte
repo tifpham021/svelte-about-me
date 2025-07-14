@@ -130,7 +130,7 @@
 <div class="container">
   <div class="intro">
     <div class="name">
-      <h2 transition:typewriter>
+      <h2 transition:typewriter on:introend={() => (showName = true)}>
         HEY, I'M
       </h2>
 
