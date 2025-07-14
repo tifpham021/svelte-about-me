@@ -18,18 +18,18 @@
   let cardData = [
     {
       image: blindBoxes,
-      title: "Coding",
-      description: "I love opening blind boxes.",
+      title: "FACT 1",
+      description: "I love opening blind boxes",
     },
     {
       image: tswift,
-      title: "Reading",
-      description: "I'm a Swiftie.",
+      title: "FACT 2",
+      description: "I'm a Swiftie",
     },
     {
       image: beach,
-      title: "States I've Lived In",
-      description: "I've lived in CA, GA, and now FL.",
+      title: "FACT 3",
+      description: "I've lived in CA, GA, and now FL",
     },
   ];
 
@@ -68,13 +68,18 @@
   ];
 
   let showName = false;
-  let name = "TIFFANY"; // Change this to your name
+  let name = "TIFFANY";
 
   let bio = `Hi there! I’m Tiffany Pham, a rising third year at Georgia Tech, where 
           I’m studying computer science. I’m a developer and designer who enjoys 
           building websites that are not only functional, but also visually appealing 
           and easy to use. I’m especially interested in front-end development and creating 
           intuitive, engaging user experiences.`;
+  
+  $: if (!showName) {
+    setTimeout(() => (showName = true), 1500); // adjust delay if needed
+  }
+  
 
   function typewriter(node, { speed = 1 }) {
     const valid =
@@ -97,6 +102,7 @@
         node.textContent = text.slice(0, i);
       },
     };
+
   }
 
   let currSongIdx = 0;
@@ -124,13 +130,14 @@
 <div class="container">
   <div class="intro">
     <div class="name">
-      <h2 transition:typewriter on:introend={() => (showName = true)}>
+      <h2 transition:typewriter>
         HEY, I'M
       </h2>
 
       {#if showName}
-        <h1 in:typewriter>{name}!</h1>
+        <h1 transition:typewriter>{name}!</h1>
       {/if}
+
     </div>
     <img src={pfp} alt="tiff at the beach" class="pfp-img" />
   </div>
